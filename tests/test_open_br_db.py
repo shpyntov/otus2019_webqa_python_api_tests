@@ -52,7 +52,6 @@ def test_get_brewery(breweries_api_client):
         path='/' + str(random_brewery_id)
     )
     assert result.json()['id'] == random_brewery_id
-    assert result.status_code == 200
 
 
 @pytest.mark.parametrize('word', ['fox', 'brew', 'blue'])

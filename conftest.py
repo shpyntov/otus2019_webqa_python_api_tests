@@ -7,10 +7,6 @@ class APIClient:
     def __init__(self, base_address):
         self.base_address = base_address
 
-    def post(self, path="/", params=None, data=None, headers=None):
-        url = self.base_address + path
-        return requests.post(url=url, params=params, data=data, headers=headers)
-
     def get(self, path="/", params=None):
         url = self.base_address + path
         return requests.get(url=url, params=params)
@@ -31,4 +27,10 @@ def random_breed(dog_api_client):
 @pytest.fixture()
 def breweries_api_client():
     base_url = 'https://api.openbrewerydb.org/breweries'
+    return APIClient(base_url)
+
+
+@pytest.fixture()
+def jsonph_api_client():
+    base_url = 'https://jsonplaceholder.typicode.com'
     return APIClient(base_url)
