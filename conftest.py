@@ -26,3 +26,9 @@ def dog_api_client():
 def random_breed(dog_api_client):
     breeds = dog_api_client.get(path='/breeds/list/all').json()['message']
     return random.choice(list(breeds))
+
+
+@pytest.fixture()
+def breweries_api_client():
+    base_url = 'https://api.openbrewerydb.org/breweries'
+    return APIClient(base_url)
