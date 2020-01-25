@@ -34,3 +34,8 @@ def breweries_api_client():
 def jsonph_api_client():
     base_url = 'https://jsonplaceholder.typicode.com'
     return APIClient(base_url)
+
+
+def pytest_addoption(parser):
+    parser.addoption("--url", action="store", help="Request url")
+    parser.addoption("--status_code", action="store", help="Expected status code")
